@@ -3,31 +3,50 @@ import './Navbar.css';
 import { FaBagShopping } from 'react-icons/fa6';
 import { FaSearch } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { AiOutlineClose } from 'react-icons/ai';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 export const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
     <nav>
       <div className="nav_left">
-        <div className="menu">
-          <p className="menu-container" onClick={() => setIsOpenMenu(!isOpenMenu)}>
-            <GiHamburgerMenu />
-            <span>Menu </span>
-          </p>
-          {isOpenMenu ? (
-            <ul className="show-menu">
-              {/* <li>Home</li>
-            <li>Gallery</li>
-            <li>Blog</li>
-            <li>About Me</li>
-            <li>Contact</li> */}
-              <DropdownItem text={'Home'} />
+        {isOpenMenu ? (
+          <div className="menu">
+            <p className="menu-container menu-container-active" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+              <AiOutlineClose size={'1em'} />
+              <span>Back</span>
+            </p>
+
+            <ul className="show-menu show-menu-active">
+              <li>
+                <Link to={'/'}>Home</Link>
+              </li>
+              <li>
+                <Link to={'#'}>Gallery</Link>
+              </li>
+              <li>
+                <Link to={'#'}>Blog</Link>
+              </li>
+              <li>
+                <Link to={'#'}>About Me</Link>
+              </li>
+              <li>
+                <Link to={'#'}>Contact</Link>
+              </li>
             </ul>
-          ) : (
-            <></>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="menu">
+            <p className="menu-container" onClick={() => setIsOpenMenu(!isOpenMenu)}>
+              <GiHamburgerMenu />
+              <span>Menu</span>
+            </p>
+            <ul className="show-menu"></ul>
+          </div>
+        )}
+
         <div className="search_bar">
           <button className="search_btn">
             <FaSearch />
@@ -48,13 +67,5 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
-
-const DropdownItem = (props) => {
-  return (
-    <li className="dropdownItem">
-      <a>{props.text}</a>
-    </li>
   );
 };
