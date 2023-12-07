@@ -62,7 +62,7 @@ export const Navbar = () => {
             <p className="amount-notification">0</p>
           </div>
           <div className="cart">
-            <FaBagShopping />
+            <FaBagShopping fill="white" />
           </div>
         </div>
       </div>

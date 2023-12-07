@@ -1,4 +1,9 @@
-.wrapper {
+.home_container {
   padding-top: 50px;
   min-height: 90%;
+}
+.product_title {
+  text-align: center;
+  font-size: 80px;
+  color: var(--light-gray);
 }
