@@ -10,6 +10,7 @@ import catImg from '../assets/cat-img.png';
 export const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const isAuth = true;
+  const cartItemAmount = 0;
   return (
     <nav>
       <div className="nav_left">
@@ -60,7 +61,7 @@ export const Navbar = () => {
       <div className="nav_right">
         <div className="shopping-cart">
           <div className="notification">
-            <p className="amount-notification">0</p>
+            <p className="amount-notification">{cartItemAmount}</p>
           </div>
           <div className="shopping-cart-icon" onClick={() => console.log('open cart modal')}>
             <FaBagShopping fill="white" />
@@ -74,21 +75,20 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="user">
-          {!isAuth ? (
-            <div style={{ color: 'white' }} className="user-icon" onClick={() => console.log('logout')}>
-              logout
-            </div>
-          ) : (
-            <div className="user-icon" onClick={() => console.log('open user modal')}>
-              <Link to={'/login'}>
-                <FaUser fill="white" />
-              </Link>
-            </div>
-          )}
-
-          {/* <div className="user-dropdown">
-            <div className="login"></div>
-          </div> */}
+          <div className="user-icon" onClick={() => console.log('open user modal')}>
+            <FaUser fill="white" />
+          </div>
+          <div className="user-dropdown">
+            {!isAuth ? (
+              <div className="logout">
+                <Link to={'/logout'}>logout</Link>
+              </div>
+            ) : (
+              <div className="login">
+                <Link to={'/login'}>Login</Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
-import './Auth.css';
 // import { login } from '../../api/authService';
+import './Auth.css';
 import catImg from '../../assets/cat-img.png';
 export default function Login() {
   const [values, setValues] = useState({
@@ -13,7 +13,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {

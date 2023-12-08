@@ -121,9 +121,11 @@ nav {
   padding-right: 40px;
   justify-self: end;
 }
-.shopping-cart {
+.shopping-cart,
+.user {
   position: relative;
   height: 30px;
+  margin-left: 10px;
 }
 
 .shopping-cart-dropdown {
@@ -133,19 +135,67 @@ nav {
   max-height: 700px;
   padding: 16px;
   background-color: var(--green-color);
-  top: 40px;
+  top: 30px;
   border-radius: 7px;
-  right: -40px;
+  right: 10px;
   z-index: 1;
+}
+
+.user-dropdown {
+  position: absolute;
+  display: none;
+  width: 150px;
+  /* max-height: 700px; */
+  padding: 5px;
+  background-color: var(--green-color);
+  top: 30px;
+  border-radius: 7px;
+  right: 10px;
+  z-index: 1;
+}
+
+.user:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--green-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.shopping-cart:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--green-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 .shopping-cart:hover .shopping-cart-dropdown {
   display: block; /* Show the dropdown on hover */
 }
 
-.user {
-  position: relative;
-  height: 30px;
+.user:hover .user-dropdown {
+  display: block; /* Show the dropdown on hover */
+}
+
+.login a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+.login a:hover {
+  color: var(--pink-color);
 }
 
 .none-cart-items {
