@@ -20,14 +20,6 @@ const products = [
     quantity: 1,
   },
   {
-    id: 2,
-    productName: 'test',
-    description: 'this is des',
-    img: null,
-    price: 100,
-    quantity: 1,
-  },
-  {
     id: 3,
     productName: 'test',
     description: 'this is des',
@@ -59,14 +51,30 @@ const products = [
     price: 100,
     quantity: 1,
   },
+  {
+    id: 7,
+    productName: 'test',
+    description: 'this is des',
+    img: null,
+    price: 100,
+    quantity: 1,
+  },
+  {
+    id: 8,
+    productName: 'test',
+    description: 'this is des',
+    img: null,
+    price: 100,
+    quantity: 1,
+  },
 ];
 
 export const Home = () => {
   return (
     <div className="home_container">
+      <div className="carousel_wrapper"></div>
       <div className="product_wrapper">
         <p className="product_title">OUR PRODUCTS</p>
-
         <ProductList products={products} />
       </div>
     </div>

@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import './Navbar.css';
 import { FaBagShopping } from 'react-icons/fa6';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaUser } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import catImg from '../assets/cat-img.png';
 export const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-
+  const isAuth = true;
   return (
     <nav>
       <div className="nav_left">
@@ -54,16 +55,40 @@ export const Navbar = () => {
         </div>
       </div>
       <div className="shop_logo">
-        <p className="logo"> SHOP </p>
+        <p className="logo">KHỀU DONATE</p>
       </div>
       <div className="nav_right">
-        <div className="shopping">
+        <div className="shopping-cart">
           <div className="notification">
             <p className="amount-notification">0</p>
           </div>
-          <div className="cart">
+          <div className="shopping-cart-icon" onClick={() => console.log('open cart modal')}>
             <FaBagShopping fill="white" />
           </div>
+          <div className="shopping-cart-dropdown">
+            {/* <div className="cart-items"></div> */}
+            <div className="none-cart-items">
+              <img src={catImg} alt="none cart item image" />
+              <p>Your cart is currently empty.</p>
+            </div>
+          </div>
+        </div>
+        <div className="user">
+          {!isAuth ? (
+            <div style={{ color: 'white' }} className="user-icon" onClick={() => console.log('logout')}>
+              logout
+            </div>
+          ) : (
+            <div className="user-icon" onClick={() => console.log('open user modal')}>
+              <Link to={'/login'}>
+                <FaUser fill="white" />
+              </Link>
+            </div>
+          )}
+
+          {/* <div className="user-dropdown">
+            <div className="login"></div>
+          </div> */}
         </div>
       </div>
     </nav>

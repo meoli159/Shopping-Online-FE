@@ -5,7 +5,6 @@ export const ProductList = (props) => {
   return (
     <div className="product_container">
       {props.products.map((product) => {
-        console.log(product);
         return (
           <div className="product_card" key={product.id}>
             <div className="product_card-img">
