@@ -56,7 +56,9 @@ export const Navbar = () => {
         </div>
       </div>
       <div className="shop_logo">
-        <p className="logo">KHỀU DONATE</p>
+        <Link to={'/'}>
+          <p className="logo">KHỀU DONATE</p>
+        </Link>
       </div>
       <div className="nav_right">
         <div className="shopping-cart">

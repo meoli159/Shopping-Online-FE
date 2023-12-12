@@ -105,7 +105,12 @@ nav {
   justify-content: center;
   cursor: pointer;
 }
-
+.shop_logo {
+  align-self: center;
+}
+.shop_logo a {
+  text-decoration: none;
+}
 .logo {
   color: var(--green-color);
   font-family: 'Poppins', sans-serif;
