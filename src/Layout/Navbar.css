@@ -149,8 +149,7 @@ nav {
 .user-dropdown {
   position: absolute;
   display: none;
-  width: 150px;
-  /* max-height: 700px; */
+  min-width: 150px;
   padding: 5px;
   background-color: var(--green-color);
   top: 30px;
@@ -183,24 +182,30 @@ nav {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.shopping-cart:hover .shopping-cart-dropdown {
-  display: block; /* Show the dropdown on hover */
-}
-
+.shopping-cart:hover .shopping-cart-dropdown,
 .user:hover .user-dropdown {
   display: block; /* Show the dropdown on hover */
 }
 
-.login a {
+.user-options {
+  width: 200px;
+}
+.login a,
+.user-options a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   color: black;
   text-decoration: none;
+  padding: 5px;
+
+  border-radius: 6px;
 }
-.login a:hover {
+.login a:hover,
+.user-options a:hover {
   color: var(--pink-color);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .none-cart-items {
@@ -219,7 +224,6 @@ nav {
   font-size: 24px;
   padding: 0 8px;
   cursor: pointer;
-  /* margin-left: 24px; */
 }
 
 .notification {

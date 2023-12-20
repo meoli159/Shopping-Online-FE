@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 import catImg from '../assets/cat-img.png';
 export const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const isAuth = true;
+  const isAuth = false;
+  const isAdmin = true;
+  const isStaff = true;
   const cartItemAmount = 0;
   return (
     <nav>
@@ -82,12 +84,14 @@ export const Navbar = () => {
           </div>
           <div className="user-dropdown">
             {!isAuth ? (
-              <div className="logout">
-                <Link to={'/logout'}>logout</Link>
-              </div>
-            ) : (
               <div className="login">
                 <Link to={'/login'}>Login</Link>
+              </div>
+            ) : (
+              <div className="user-options">
+                {isAdmin && <Link to={'/admin-dashboard'}>Admin Dashboard</Link>}
+                {isStaff && <Link to={'/staff-dashboard'}>Staff Dashboard</Link>}
+                <Link to={'/logout'}>Logout</Link>
               </div>
             )}
           </div>
